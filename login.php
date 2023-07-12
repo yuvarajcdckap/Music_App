@@ -1,7 +1,8 @@
+<!-- <?php session_start(); ?> -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
 
-<head>  
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
@@ -17,15 +18,29 @@
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                             <div role="alert">
-                            <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-                                Oops ! Something went wrong
-                            </div>
-                            <!-- <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                                <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                                    Oops ! Something went wrong
+                                </div>
+                                <!-- <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
                             </div> -->
-                        </div>
-                        <?php if(isset($_SESSION['invaild details'])):?>
-                            <span><?php print_r($_SESSION['invaild details'])?></span>
-                        <?php endif?>
+                            </div>
+
+                            <?php
+                            if (isset($_SESSION["invaild details'"])) {
+                            ?>
+                                <span><?php echo $_SESSION["invaild details'"] ?></span>
+                                <?php
+                                unset($_SESSION["invaild details'"]);
+                            } else {
+                                if (isset($_SESSION["success"])) {
+                                ?>
+                                    <span><?php echo $_SESSION["success"]; ?></span>
+                            <?php
+                                    unset($_SESSION["success"]);
+                                }
+                            }
+                            ?>
+
                             <form action="/login" method="post">
 
                                 <!-- Email input -->
@@ -46,11 +61,12 @@
 
                                 <div class="text-center text-lg-start mt-4 pt-2">
                                     <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" name="submitBtn">Login</button>
-                                    <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" name="submitBtn"><a class="guestBtn" href="home.php">Guest User</a></button>
-                                    <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!" class="link-danger">Register</a></p>
                                 </div>
-
                             </form>
+                            <div class="guestDiv">
+                                <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;" name="submitBtn"><a class="guestBtn" href="/normalUserLogin">Guest User</a></button>
+                                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!" class="link-danger">Register</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>

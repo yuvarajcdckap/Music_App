@@ -43,12 +43,14 @@ CREATE table songs_table(
     id int not null AUTO_INCREMENT,
     name varchar(255),
     admin_id int not null,
+    artist_id int,
     song_path varchar(255),
     image_path varchar(255),
     created_at timestamp,
     updated_at timestamp,
   
     PRIMARY KEY(id),
+       FOREIGN key(artist_id) REFERENCES artist_table(id),
     FOREIGN key(admin_id) REFERENCES users(id),
 );
 

@@ -64,7 +64,9 @@ class Router
                     case 'addArtist':
                         $this->controller->addArtist($_POST,$_FILES);
                         break;
-                    
+                    case 'normalUserLogin':
+                        $this->controller->normalUserLogin();
+                        break;   
                 }
             }
         }
